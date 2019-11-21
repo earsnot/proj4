@@ -1,6 +1,8 @@
 class DataAverager:
-	"""docstring for DataAverager"""
-	measurements = [] # Make list
+	"""docstring for DataAverager - Handles moving averaging of data over a defined windows size.
+	Input: averaging window size"""
+	
+	measurements = [] # Define list to average over
 
 	def __init__(self, averageSize):
 		self.averageSize = averageSize # The amount of data points to average over
@@ -20,8 +22,8 @@ class DataAverager:
 
 
 # --------------- TEST -----------------
-molle = DataAverager(30)
-for i in range(31): # range(10) = a list from 0 to 9 (lengeth of 10)
-	print(i)
-	print(molle.average(i))
+#molle = DataAverager(30)
+#for i in range(31): # range(10) = a list from 0 to 9 (lengeth of 10)
+#	print(i)
+#	print(molle.average(i))
 
