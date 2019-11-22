@@ -1,48 +1,28 @@
 class ADCConvertor:
-	INPUT_VOLTAGE = 3.3
 	"""docstring for VoltageSensor - Input value and scale factor (fraction)"""
-	def __init__(self, bitreading, bitconfig):
-		self.bitreading = bitreading # the measured input voltage
+	def __init__(self, ADCvoltage, bitreading, bitconfig):
+		self.ADCvoltage = ADCvoltage # voltage range from ADC
+		self.bitreading = bitreading # the measured input voltage in bit value
 		self.bitconfig = bitconfig # configurated bit-setting
 
 	def bit2voltage(self):
-		return self.INPUT_VOLTAGE*self.bitreading/pow(2,self.bitconfig)
+		return self.ADCvoltage*self.bitreading/(1<<self.bitconfig) # calculates bit to voltage (sensor)
 
-
-class VoltageSensor:
+class Scaler:
 	"""docstring for VoltageSensor - Input value and scale factor (fraction)"""
-	def __init__(self, factor):
+	def __init__(self, input_value, factor):
+		self.input_value = input_value # input value for scaling
 		self.factor = factor # expected input is a fraction (voltage divider)
 
-	def voltage_divider(self):
-		return self.INPUT_VOLTAGE*self.bit2voltage()/self.factor
+	def scale(self):
+		return self.factor*self.input_value # scales input value with given factor
 
-
-class VoltageSensor_TESTER:
+class LinearFunc:
 	"""docstring for VoltageSensor - Input value and scale factor (fraction)"""
-	def __init__(self, voltage, factor):
-		self.voltage = voltage
-		self.factor = factor # expected input is a fraction (voltage divider)
+	def __init__(self, input_value, slope, intercept):
+		self.input_value = input_value # expected input value
+		self.slope = slope # slope coefficient
+		self.intercept = intercept # interception point with y-axis
 
-	def voltage_divider(self):
-		return self.voltage/self.factor
-
-
-class CurrentSensor:
-	SLOPE = 10.674
-	INTERCEPT = -45.291
-	"""docstring for VoltageSensor - Input value and scale factor (fraction)"""
-	def __init__(self, bitreading, factor, bit):
-		self.bitreading = bitreading # the measured input voltage
-		self.factor = factor # expected input is a fraction (voltage divider)
-		self.bit = bit # configurated bit-setting
-
-	def bit2voltage(self):
-		return self.bitreading/pow(2,self.bit)
-
-	def voltageDivider(self):
-		return self.INPUT_VOLTAGE*self.bit2voltage()/self.factor
-
-V1 = VoltageSensor_TESTER(5, 0.1)
-print(V1.voltage_divider())
-
+	def func_value(self):
+		return self.slope*self.input_value+self.intercept # calculates value based on linear regression
