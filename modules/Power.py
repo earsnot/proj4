@@ -1,4 +1,3 @@
-
 # Test constants (These are loacted in the 'constants' module)
 MIN_BATTERY_VOLTAGE = 42 # Volts
 MAX_BATTERY_VOLTAGE = 52 # Volts
