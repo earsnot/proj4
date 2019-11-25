@@ -1,38 +1,53 @@
-LOWEST_THRESHOLD = 20
+import libs.constants
 
-class ModeSelector:
-    drivemode = 0 #initializing drivemode variable
+LOWEST_THRESHOLD = 20    
+def SOC_based_mode_select(self, soc):
+    if soc < LOWEST_THRESHOLD: #compare SOC to const LOWEST_THRESHOLD
+        self.eco_mode()
+        print("is sustainable")
+    self.normal_mode()
 
-    def get_drivemode(self): #method to return current drivemode
-        return self.drivemode
+# EXPERIMENTAL
+class ModeHandler:
+    def __init__(self):
+        self.mode = -1
+        self.soc = -1
+    def select_drivemode(self, mode="default", soc="default"):
+        if mode == 0 or soc <= 20:
+            eco.activate()
+            normal.toggle()
+            sport.toggle()
 
-    def eco_mode(self):
-        #set_pin(129) #set controlsignal pin
-        self.drivemode = 0 
-        return self.drivemode #return current drivemode
+        if mode == 1:
+            eco.toggle()
+            normal.activate()
+            sport.toggle()
 
-    def normal_mode(self):
-        #set_pin #set control signal pin
-        self.drivemode = 1
-        return self.drivemode  #return current drivemode
-
-    def sport_mode(self):
-        #set_pin #set control signal pin
-        self.drivemode = 2
-        return self.drivemode #return current drivemode
-
-    def SOC_based_mode_select(self, soc):
-        if soc < LOWEST_THRESHOLD: #compare SOC to const LOWEST_THRESHOLD
-            self.eco_mode()
-            print("is sustainable")
-
-    
+        if mode == 2:
+            eco.toggle()
+            normal.toggle()
+            sport.activate()
 
 
-# test
+class Mode:
+    def __init__(self, pin): #init constructor
+        self.pin = pin
+        self.is_active = False
+    def pin_init(self, arg): #initialise pin 'arg'
+        pyb.Pin('arg', Pin.OUT_PP, pull=Pin.PULL_DOWN)
 
-ms = ModeSelector()
-ms.SOC_based_mode_select(15)
+    def activate(self):
+        self.pin.value(1)
+        self.is_active = True
+
+    def deactivate(self):
+        self.pin.value(0)
+        self.is_active = False
+
+    def toggle(self):
+        if self.is_active = True:
+            self.deactivate()
+
 
 
 #mode = DriveModeHandler()
