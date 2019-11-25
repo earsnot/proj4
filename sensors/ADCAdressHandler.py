@@ -1,6 +1,8 @@
-class ClassName(object):
-	"""docstring for ClassName"""
-	def __init__(self, arg):
-		super(ClassName, self).__init__()
-		self.arg = arg
+class ADCAdressHandler:
+	"""docstring for """
+	def __init__(self, adress_input):
+		self.adress_input = adress_input
+
+	def adress_return(self):
+		return self.adress_input
 		
