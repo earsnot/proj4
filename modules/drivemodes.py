@@ -45,7 +45,7 @@ class Mode:
         self.is_active = False
 
     def toggle(self):
-        if self.is_active = True:
+        if self.is_active:
             self.deactivate()
 
 
