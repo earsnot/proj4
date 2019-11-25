@@ -1,11 +1,13 @@
+BATTERY_CAPACITY = 18 # Ah (Amp-hours)
+
 class SOC:
-	"""docstring for SOC - Handles estimation of SOC based on start voltage and couloumb counting (current integration)
-	Input = dt (1/interrupt frequency), totalCapacity (in aH)"""
+	"""Docstring for SOC - Handles estimation of SOC based on start voltage and couloumb counting (current integration)
+	Input: dt (time in between interrupts), batteryCapacityInAh"""
 	SOC = 0
 
 	def __init__(self, dt, batteryCapacityInAh):
 		self.dt = dt # Defined time in between interrupts
-		self.batteryCapacityInC = batteryCapacityInAh*3600
+		self.batteryCapacityInC = batteryCapacityInAh*3600 # 1Ah = 3600 Coulombs
 
 
 	def estimate_start_SOC(self, voltageReading, testConstant): # ((JUST A TESTING FUNCTION - NOT DONE))
@@ -14,7 +16,7 @@ class SOC:
 
 
 	def esitmate_continuous_SOC(self, currentReading):
-		self.SOC = self.SOC + currentReading * self.dt / self.batteryCapacityInC
+		self.SOC = self.SOC + (currentReading * self.dt) / self.batteryCapacityInC
 		return self.SOC
 
 # --------------- TEST ------------------
