@@ -1,12 +1,13 @@
 import libs.constants
+import pyboard as pyb
 
-LOWEST_THRESHOLD = 20    
-def SOC_based_mode_select(self, soc):
-    if soc < LOWEST_THRESHOLD: #compare SOC to const LOWEST_THRESHOLD
-        self.eco_mode()
-        print("is sustainable")
-    self.normal_mode()
-
+#LOWEST_THRESHOLD = 20    
+#def SOC_based_mode_select(self, soc):
+#    if soc < LOWEST_THRESHOLD: #compare SOC to const LOWEST_THRESHOLD
+#        self.eco_mode()
+#        print("is sustainable")
+#    self.normal_mode()
+#
 # EXPERIMENTAL
 class ModeHandler:
     def __init__(self):
@@ -31,10 +32,8 @@ class ModeHandler:
 
 class Mode:
     def __init__(self, pin): #init constructor
-        self.pin = pin
+        self.pin = pyb.Pin('pin', Pin.OUT_PP, pull=Pin.PULL_DOWN)
         self.is_active = False
-    def pin_init(self, arg): #initialise pin 'arg'
-        pyb.Pin('arg', Pin.OUT_PP, pull=Pin.PULL_DOWN)
 
     def activate(self):
         self.pin.value(1)

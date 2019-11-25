@@ -1,7 +1,7 @@
 class ModeHandler:
     def __init__(self):
         self.mode = -1
-        self.soc = -1
+        self.soc = "default"
         
     def select_drivemode(self, mode="default", soc="default"):
         self.mode = mode
@@ -26,4 +26,4 @@ class ModeHandler:
             #normal.toggle()
             #sport.activate()
 handler = ModeHandler()
-handler.select_drivemode(soc=19)
+handler.select_drivemode(mode=1, soc=19)
