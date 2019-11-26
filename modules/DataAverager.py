@@ -8,7 +8,7 @@ class DataAverager:
 		self.averageSize = averageSize # The amount of data points to average over
 
 	def average(self, measurement):
-		sum = 0 # container for the average 
+		sum_of = 0 # container for the average
 
 		if len(self.measurements) >= self.averageSize: # If there are "averageSize" amount of measurements in the list, delete the oldest measurement
 			self.measurements.pop()
@@ -16,9 +16,9 @@ class DataAverager:
 		self.measurements.insert(0, measurement) # Insert the newest measurement at the first index of the list
 
 		for i in self.measurements: # Summarize every index of the measurement list into one variable, sum 
-			sum += i
+			sum_of += i
 
-		return sum/len(self.measurements) # Divide the sum with amount of measurements
+		return sum_of / len(self.measurements) # Divide the sum with amount of measurements
 
 
 # --------------- TEST -----------------

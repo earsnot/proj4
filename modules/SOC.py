@@ -5,9 +5,9 @@ class SOC:
 	Input: dt (time in between interrupts), batteryCapacityInAh"""
 	SOC = 0
 
-	def __init__(self, dt, batteryCapacityInAh):
+	def __init__(self, dt, battery_capacity_ah):
 		self.dt = dt # Defined time in between interrupts
-		self.batteryCapacityInC = batteryCapacityInAh*3600 # 1Ah = 3600 Coulombs
+		self.batteryCapacityInC = battery_capacity_ah*3600 # 1Ah = 3600 Coulombs
 
 
 	def estimate_start_SOC(self, voltageReading, testConstant): # ((JUST A TESTING FUNCTION - NOT DONE))

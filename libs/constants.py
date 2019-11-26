@@ -9,3 +9,4 @@ ADC_VOLTAGE = 3.3 # [Volts]
 ECO_PIN = 'x1'
 NORMAL_PIN = 'x2'
 SPORT_PIN = 'x3'
+
