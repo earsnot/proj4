@@ -1,15 +1,11 @@
+#import init
 import libs.constants
 import pyboard as pyb
 
-#LOWEST_THRESHOLD = 20    
-#def SOC_based_mode_select(self, soc):
-#    if soc < LOWEST_THRESHOLD: #compare SOC to const LOWEST_THRESHOLD
-#        self.eco_mode()
-#        print("is sustainable")
-#    self.normal_mode()
-#
 # EXPERIMENTAL
 class ModeHandler:
+    """Drive mode handler:
+    """
     def __init__(self):
         self.mode = -1
         self.soc = -1
