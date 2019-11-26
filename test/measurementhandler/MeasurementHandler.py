@@ -26,14 +26,14 @@ class MeasurementHandler:
 		voltage_reading = adc_convertor.bit2voltage(voltage_sensor_bit_reading)
 
 
-		voltage_avg = DataAverager.average_data(voltageReading) # Comment: Hvad navn instancierer vi average_data for Voltage som?
+		voltage_avg = DataAverager.average_data(voltage_reading) # Comment: Hvad navn instancierer vi average_data for Voltage som?
 
 
 		# CURRENT: Read, convert, and average voltage reading
 		current_address = current_adc.getAddress(CURRENT_SENSOR_ID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
 		# current_reading = getMeasurements(current_address) # Pseudo code
 		current_reading = adc_convertor.bit2voltage(current_sensor_bit_reading)
-		current_avg = DataAverager.average_data(voltageReading) # Comment: Hvad navn instancierer vi average_data for Voltage som?
+		current_avg = DataAverager.average_data(current_reading) # Comment: Hvad navn instancierer vi average_data for Voltage som?
 
 
 		# TEMPERATURE: Read, convert, and average voltage reading
