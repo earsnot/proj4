@@ -1,5 +1,5 @@
 # holding constants
-LOWEST_THRESHOLD = 20 # [%] 
+SOC_LOW_THRESHOLD = 20 # [%] 
 ADC_VOLTAGE = 3.3 # [Volt] 
 # adc pins
 ADC_VOLT_PIN = 'X19'
@@ -17,6 +17,9 @@ ECO_PIN = 'X1'
 NORMAL_PIN = 'X2'
 SPORT_PIN = 'X3'
 
+#SOC
+SOC_SLOPE = 5
+SOC_INTERCEPT = 2
 
 # --- SENSORS ---
 # temperature
