@@ -1,18 +1,18 @@
 # from constants import *
-# import adresses from constant (LINE 1 & 10-12)
+# import addresses from constant (LINE 1 & 10-12)
 
-class ADCAdressHandler:
+class ADCAddressHandler:
 	"""docstring for """
-	def __init__(self, adress_selection_value):
-		self.adress_selection_value = adress_selection_value
+	def __init__(self, address_selection_value):
+		self.address_selection_value = address_selection_value
 
-	def set_adress(self):
-		# adress1 = import adress1
-		# adress2 = import adress2
-		# adress3 = import adress3
-		if self.adress_selection_value == 0:
-			return adress1
-		elif self.adress_selection_value == 1:
-			return adress2
-		elif self.adress_selection_value == 2:
-			return adress3
+	def set_address(self, address):
+		# address1 = import address1
+		# address2 = import address2
+		# address3 = import address3
+		if self.address_selection_value == 0:
+			return address1
+		elif self.address_selection_value == 1:
+			return address2
+		elif self.address_selection_value == 2:
+			return address3
