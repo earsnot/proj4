@@ -1,15 +1,13 @@
 
-# Constants for TEST
+# -------- Constants for TEST
 VOLTAGE_SENSOR_ID = 0  # Disse bliver defineret i constants
 CURRENT_SENSOR_ID = 1
 TEMP_SENSOR_ID = 2
 
 ADC_VOLTAGE = 3.3  # [Volts]
-
 ADC_BIT_SETTING = 10  # Denne setting er ikke officiel
 
-
-# Values for test
+# ------- Values for test
 	voltage_sensor_bit_reading = 1<<9
 	current_sensor_bit_reading = 1<<9
 	temp_sensor_bit_reading = 1<<9
@@ -21,49 +19,49 @@ class MeasurementHandler:
 	temp_avg = 0
 
 
-
-
 	def read_measurements(self):
 		# VOLTAGE: Read, convert, and average voltage reading
-		voltage_address = ADCAddressHandler.getAddress(self.voltageSensorID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
-		voltageReading = getMeasurements(voltage_address) # Pseudo code
-		ADCConvertor.bit2voltage(voltage_sensor_bit_reading)
+		voltage_address = voltage_adc.getAddress(VOLTAGE_SENSOR_ID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
+		# voltage_reading = getMeasurements(voltage_address) # Pseudo code
+		voltage_reading = adc_convertor.bit2voltage(voltage_sensor_bit_reading)
 
-		# Indsæt bit2voltage (hvad end Troels har kaldt den)
+
 		voltage_avg = DataAverager.average_data(voltageReading) # Comment: Hvad navn instancierer vi average_data for Voltage som?
 
-		# VOLTAGE: Read, convert, and average voltage reading
-		currentAddress = ADCAddressHandler.getAddress(self.currentSensorID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
-		currentReading = getMeasurements(currentAddress) # Pseudo code
 
-
+		# CURRENT: Read, convert, and average voltage reading
+		current_address = current_adc.getAddress(CURRENT_SENSOR_ID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
+		# current_reading = getMeasurements(current_address) # Pseudo code
+		current_reading = adc_convertor.bit2voltage(current_sensor_bit_reading)
 		current_avg = DataAverager.average_data(voltageReading) # Comment: Hvad navn instancierer vi average_data for Voltage som?
 
-		# VOLTAGE: Read, convert, and average voltage reading
-		tempAddress = ADCAddressHandler.getAddress(self.tempSensorID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
-		tempReading = getMeasurements(tempAddress) # Pseudo code
-		tempAvg = DataAverager.average_data(voltageReading) # Comment: Hvad navn instancierer vi average_data for Voltage som?
+
+		# TEMPERATURE: Read, convert, and average voltage reading
+		temp_address = ADCAddressHandler.getAddress(self.tempSensorID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
+		# temp_reading = getMeasurements(temp_address) # Pseudo code
+		temp_reading = adc_convertor.bit2voltage(temp_sensor_bit_reading)
+		temp_avg = DataAverager.average_data(temp_reading) # Comment: Hvad navn instancierer vi average_data for Voltage som?
 
 
 
 	def get_avg_voltage(self):
-		return self.voltageAvg
+		return self.voltage_avg
 
 	def get_avg_current(self):
-		return self.currentAvg
+		return self.current_avg
 
 	def get_avg_temp(self):
-		return self.tempAvg
+		return self.temp_avg
 
-# Instanciations:
+# -------- Instanciations:
 
 # ADCConvertor:
-voltage_adc = ADCConvertor(ADC_VOLTAGE, ADC_BIT_SETTING) # instanciering af voltage adc konvertering
-current_adc = ADCConvertor(ADC_VOLTAGE, ADC_BIT_SETTING) # instanciering af voltage adc konvertering
-temp_adc = ADCConvertor(ADC_VOLTAGE, ADC_BIT_SETTING) # instanciering af voltage adc konvertering
+adc_convertor = ADCConvertor(ADC_VOLTAGE, ADC_BIT_SETTING) # instanciering af voltage adc konvertering
 
 # ADCAdressHandler:
 adc_address_voltage = ADCAdressHandler.getAddress(VOLTAGE_SENSOR_ID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
 adc_address_current = ADCAdressHandler.getAddress(CURRENT_SENSOR_ID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
 adc_address_temp = ADCAdressHandler.getAddress(TEMP_SENSOR_ID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
+
+# DataAverager:
 

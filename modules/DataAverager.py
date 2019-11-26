@@ -10,7 +10,8 @@ class DataAverager:
 	def average(self, measurement):
 		sum_of = 0 # container for the average
 
-		if len(self.measurements) >= self.averageSize: # If there are "averageSize" amount of measurements in the list, delete the oldest measurement
+		if len(self.measurements) >= self.averageSize: 	# If there are "averageSize" amount of measurements in the list,
+														# delete the oldest measurement
 			self.measurements.pop()
 
 		self.measurements.insert(0, measurement) # Insert the newest measurement at the first index of the list
