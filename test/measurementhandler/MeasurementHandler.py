@@ -21,12 +21,15 @@ class MeasurementHandler:
 
 	def read_measurements(self):
 		# VOLTAGE: Read, convert, and average voltage reading
-		voltage_address = voltage_adc.getAddress(VOLTAGE_SENSOR_ID) # Comment: Hvad navn instancierer vi ADCAddressHandler som?
-		# voltage_reading = getMeasurements(voltage_address) # Pseudo code
-		voltage_reading = adc_convertor.bit2voltage(voltage_sensor_bit_reading)
+		voltage_reading = voltage_adc.read() #
+		voltage_converted = adc_conv.bit2voltage(voltage_reading)
+		voltage_scaled = volt_div_scaler.scale(voltage_converted)
+		voltage_averaged = avg_voltage.avg_data(voltage_scaled)
 
-
-		voltage_avg = DataAverager.average_data(voltage_reading) # Comment: Hvad navn instancierer vi average_data for Voltage som?
+		current_reading = current_adc.read() #
+		current_converted = adc_conv.bit2voltage(current_reading)
+		current_scaled = cur_div_scaler.scale(current_converted)
+		current_averaged = avg_voltage.avg_data(voltage_scaled)
 
 
 		# CURRENT: Read, convert, and average voltage reading
