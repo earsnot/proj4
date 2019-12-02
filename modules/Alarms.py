@@ -14,7 +14,3 @@ class Alarms:
 				return "Current"+String
 			elif type == 2:
 				return "Voltage"+String
-
-
-A = Alarms
-print(A.alarm_SOC(0))
