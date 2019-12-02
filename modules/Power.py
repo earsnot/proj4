@@ -1,8 +1,8 @@
-
 # Test constants (These are loacted in the 'constants' module)
 MIN_BATTERY_VOLTAGE = 42 # Volts
 MAX_BATTERY_VOLTAGE = 52 # Volts
-R_DIS_DT_10S = 0.28 # [Ohms] (3.7V / 13.2A) - 10 second voltage drop test - From ballpark test. Resistance calculated from voltage drop over 10 seconds divided by current draw.
+R_DIS_DT_10S = 0.28 # [Ohms] (3.7V / 13.2A) - 10 second voltage drop test - From ballpark test. Resistance calculated
+					# from voltage drop over 10 seconds divided by current draw.
 
 
 class Power:
@@ -21,5 +21,7 @@ class Power:
 		minPower = self.minBatteryVoltage * (OCV - self.minBatteryVoltage) / self.dischargeResistance
 		return minPower
 
+# ----------- Test --------------
 Powertest = Power(MIN_BATTERY_VOLTAGE, R_DIS_DT_10S)
 print(Powertest.calc_max_dis_power(42.5))
+print(Powertest.calc_power(10, 10))
