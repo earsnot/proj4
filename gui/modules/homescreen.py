@@ -1,6 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
 from ttkthemes import ThemedTk
+from PIL import Image, ImageTk
+from machine import i2c
+
+# setting up as slave
+slave = I2C('X', freq=400000)
+slave.init()
 
 # testing
 def choose_mode(mode):
@@ -14,8 +20,8 @@ def choose_mode(mode):
 BUTTON_W = 25
 BUTTON_H = int(BUTTON_W/2)
 
-m = ThemedTk(className="Start Screen", theme="equilux")
-m.geometry('800x600')
+m = ThemedTk(className="Start Screen", theme="xpnative")
+m.geometry('480x360')
 
 rows = 0
 while rows < 50:
@@ -31,13 +37,34 @@ nb.add(hometab, text='Home')
 
 measurement_tab = ttk.Frame(nb)
 nb.add(measurement_tab, text='Measurements')
+# displaying SOC
 
-b1 = tk.Button(hometab, text='Eco mode', command=lambda : choose_mode(0))
+soc = 50
+soc_label = ttk.Label(hometab, text=soc)
+soc_label.pack()
+
+ttk.Button
+
+# buttons for choosing mode
+
+b1 = ttk.Button(hometab, text='Eco mode', font=h1, command=lambda : choose_mode(0))
 b1.pack(anchor='nw', padx=3, pady=2)
-b2 = tk.Button(hometab, text='Normal mode', command=lambda: choose_mode(1))
+
+b2 = ttk.Button(hometab, text='Normal mode', command=lambda: choose_mode(1))
 b2.pack(anchor='nw', padx=3, pady=2)
-b3 = tk.Button(hometab, text='Sport mode', command=lambda: choose_mode(2))
+
+b3 = ttk.Button(hometab, text='Sport mode', command=lambda: choose_mode(2))
 b3.pack(anchor='nw', padx=3, pady=2)
-print(b1.pack_info())
+
+q_butt = tk.PhotoImage(file=r"C:\dev\proj4\gui\modules\resized.png")
+lol_butt = tk.PhotoImage(file=r"C:\dev\proj4\gui\modules\lol.png")
+
+quit_button = ttk.Button(hometab, text='Closes application', command=lambda: m.destroy(), image=q_butt)
+quit_button.pack(anchor='se', padx=3, pady=3, side="bottom")
+
+lol_button = ttk.Button(hometab, text='Closes application', command=lambda: m.destroy(), image=lol_butt)
+lol_button.pack(anchor='n', padx=3, pady=3, side="top")
+
 m.mainloop()
 
+slave.readfrom(master, 8, stop=True)

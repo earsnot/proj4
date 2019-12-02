@@ -1,6 +1,6 @@
 # dump init stuff here
-from pyb import Pin, ADC
-import modules.drivemodes
+#from pyb import Pin, ADC
+from modules import Mode, ModeHandler
 import libs.constants
 
 #def do_readings():
