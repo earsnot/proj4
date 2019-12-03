@@ -46,3 +46,6 @@ def init():
     # initialising Scaler class
     volt_div_scaler = Scaler(VOLT_DIV_SCALE)
 
+    # initialising LinearFunc class
+    current_func = LinearFunc(0,0) # Hvad er slope og intercept af Hall Sensoren?
+    temp_func = LinearFunc(0,0) # Hvad er slope og intercept af temperatursensoren?

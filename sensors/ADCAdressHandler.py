@@ -16,3 +16,5 @@ class ADCAddressHandler:
 			return address2
 		elif self.address_selection_value == 2:
 			return address3
+
+
