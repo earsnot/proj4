@@ -2,11 +2,12 @@ import tkinter as tk
 from tkinter import ttk
 from ttkthemes import ThemedTk
 from PIL import Image, ImageTk
-from machine import i2c
+from modules import *
+#from machine import i2c
 
 # setting up as slave
-slave = I2C('X', freq=400000)
-slave.init()
+#slave = I2C('X', freq=400000)
+#slave.init()
 
 # testing
 def choose_mode(mode):
@@ -46,8 +47,7 @@ soc_label.pack()
 ttk.Button
 
 # buttons for choosing mode
-
-b1 = ttk.Button(hometab, text='Eco mode', font=h1, command=lambda : choose_mode(0))
+b1 = ttk.Button(hometab, text='Eco mode',command=lambda : choose_mode(0))
 b1.pack(anchor='nw', padx=3, pady=2)
 
 b2 = ttk.Button(hometab, text='Normal mode', command=lambda: choose_mode(1))
@@ -66,5 +66,5 @@ lol_button = ttk.Button(hometab, text='Closes application', command=lambda: m.de
 lol_button.pack(anchor='n', padx=3, pady=3, side="top")
 
 m.mainloop()
-
-slave.readfrom(master, 8, stop=True)
+#
+#slave.readfrom(master, 8, stop=True)
