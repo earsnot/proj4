@@ -1,30 +1,5 @@
 from libs.constants import *
 from pyb import Pin
-#import main
-
-# EXPERIMENTAL
-class ModeHandler:
-    """Drive mode handler:
-    """
-    def __init__(self):
-        self.mode = -1
-        self.soc = -1
-    def select_drivemode(self, mode="default", soc="default"):
-        if mode == 0 or soc <= 20:
-            eco.activate()
-            normal.toggle()
-            sport.toggle()
-
-        if mode == 1:
-            eco.toggle()
-            normal.activate()
-            sport.toggle()
-
-        if mode == 2:
-            eco.toggle()
-            normal.toggle()
-            sport.activate()
-
 
 class Mode:
     def __init__(self, pin): #init constructor

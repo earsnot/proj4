@@ -1,18 +1,18 @@
 class SOC:
-	"""Docstring for SOC - Handles estimation of SOC based on start voltage and couloumb counting (current integration)
+	"""Docstring for soc - Handles estimation of SOC based on start voltage and couloumb counting (current integration)
 	Input: dt (time in between interrupts), batteryCapacityInAh"""
-	SOC = 0
+	soc = 0
 
 	def __init__(self, dt, battery_capacity_ah):
 		self.dt = dt # Defined time in between interrupts
-		self.batteryCapacityInC = battery_capacity_ah*3600 # 1Ah = 3600 Coulombs
+		self.battery_capacity_in_c = battery_capacity_ah*3600 # 1Ah = 3600 Coulombs
 
 
-	def estimate_start_SOC(self, voltageReading, testConstant): # ((JUST A TESTING FUNCTION - NOT DONE))
-		self.SOC = voltageReading * testConstant # Er SOC på grafen fra 0-1 skal der ganges med 100 her.
-		return self.SOC
+	def estimate_start_soc(self, voltage_reading, test_constant): # ((JUST A TESTING FUNCTION - NOT DONE))
+		self.soc = voltage_reading * test_constant # Er soc på grafen fra 0-1 skal der ganges med 100 her.
+		return self.soc
 
 
-	def esitmate_continuous_SOC(self, currentReading):
-		self.SOC = self.SOC + (currentReading * self.dt * 100) / self.batteryCapacityInC # *100 fordi procent
-		return self.SOC
+	def esitmate_continuous_soc(self, current_reading):
+		self.soc = self.soc + (current_reading * self.dt * 100) / self.battery_capacity_in_c # *100 fordi procent
+		return self.soc
