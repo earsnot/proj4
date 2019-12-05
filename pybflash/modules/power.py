@@ -12,11 +12,7 @@ class Power:
 		return power
 
 	def calc_max_dis_power(self, OCV): # OCV: Should be calculated from an external function through the OCV/SOC curve.
-		"""Docstring for calc_max_dis_power() - Calculates the maximum discharging power of the battery for a maximum 10 second power draw"""
+		"""Docstring for calc_max_dis_power() - Calculates the maximum discharging power of the battery for a maximum
+		10 second power draw"""
 		minPower = self.minBatteryVoltage * (OCV - self.minBatteryVoltage) / self.dischargeResistance
 		return minPower
-
-## ----------- Test --------------
-#Powertest = Power(MIN_BATTERY_VOLTAGE, R_DIS_DT_10S)
-#print(Powertest.calc_max_dis_power(42.5))
-#print(Powertest.calc_power(10, 10))
