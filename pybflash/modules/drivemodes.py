@@ -3,27 +3,27 @@
 from pyb import Pin
 #import main
 # EXPERIMENTAL
-#class ModeHandler:
-#    """Drive mode handler:
-#    """
-#    def __init__(self):
-#        self.mode = -1
-#        self.soc = -1
-#    def select_drivemode(self, mode="default", soc="default"):
-#        if mode == 0 or soc <= 20:
-#            eco.activate()
-#            normal.toggle()
-#            sport.toggle()
-#
-#        if mode == 1:
-#            eco.toggle()
-#            normal.activate()
-#            sport.toggle()
-#
-#        if mode == 2:
-#            eco.toggle()
-#            normal.toggle()
-#            sport.activate()
+class ModeHandler:
+    """Drive mode handler:
+    """
+    def __init__(self):
+        self.mode = -1
+        self.soc = -1
+    def select_drivemode(self, mode="default", soc="default"):
+        if mode == 0 or soc <= 20:
+            eco.activate()
+            normal.toggle()
+            sport.toggle()
+
+        if mode == 1:
+            eco.toggle()
+            normal.activate()
+            sport.toggle()
+
+        if mode == 2:
+            eco.toggle()
+            normal.toggle()
+            sport.activate()
 
 
 class Mode:
@@ -42,11 +42,4 @@ class Mode:
     def toggle(self):
         if self.is_active:
             self.deactivate()
-
-
-
-
-#mode = DriveModeHandler()
-#mode.normal_mode()
-#print(mode.normal_mode())
 

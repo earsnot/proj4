@@ -1,13 +1,14 @@
 class Alarms:
 	"""docstring for Alarms"""
-		
-	def alarm_SOC(flag):
+	@staticmethod
+	def alarm_soc(flag):
 		if flag == 1:
 			return "SOC below threshold"
-		
-	def alarm_sensors(type, flag):
+
+	@staticmethod
+	def alarm_sensors(self, type, flag):
 		if flag == 1:
-			String = " sensor out of bounce"
+			String = "sensor out of bounds"
 			if type == 0:
 				return "Temp"+String
 			elif type == 1:

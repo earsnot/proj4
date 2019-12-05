@@ -30,9 +30,9 @@ def init():
     adc_temp = ADCAddressHandler(2)
 
     # initialising DataAverager class
-    avg_voltage = avg_data(AVG_WINDOW_SIZE)
-    avg_current = avg_data(AVG_WINDOW_SIZE)
-    avg_temp = avg_data(AVG_WINDOW_SIZE)
+    avg_voltage = DataAverager(AVG_WINDOW_SIZE)
+    avg_current = DataAverager(AVG_WINDOW_SIZE)
+    avg_temp = DataAverager(AVG_WINDOW_SIZE)
 
     # initialising Power class
     power = Power(MIN_BATTERY_VOLTAGE, R_DIS_DT_10S)

@@ -1,6 +1,6 @@
 class DataAssesser:
 	"""docstring for DataAssesser"""
-
+	@staticmethod
 	def check_sensor_readings(sensorType, sensorValue):
 		if sensorType == 0:
 			if sensorValue < MIN_TEMP_SENSOR or sensorValue > MAX_TEMP_SENSOR:
@@ -11,7 +11,8 @@ class DataAssesser:
 		elif sensorType == 2:
 			if sensorValue < MIN_VOLT_SENSOR or sensorValue > MAX_VOLT_SENSOR:
 				return 1
-		
+
+	@staticmethod
 	def check_if_SOC_too_low(SOCValue):
 		if SOCValue < SOC_LOW_THRESHOLD:
 			return 1
