@@ -1,30 +1,27 @@
+from libs.constants import *
+
 class DataAverager:
 	"""docstring for DataAverager - Handles moving averaging of data over a defined windows size.
-	Input: averageSize (averaging window size)."""
-	
-	measurements = [] # Define list to average over
+	Input: average_size (averaging window size)."""
 
-	def __init__(self, averageSize):
-		self.averageSize = averageSize # The amount of data points to average over
+	measurements = []  # Define list to average over
+
+	def __init__(self, average_size):
+		self.average_size = average_size  # The amount of data points to average over
 
 	def avg_data(self, measurement):
-		sum_of = 0 # container for the average sum value
+		sum_of = 0  # container for the average sum value
 
-		if len(self.measurements) >= self.averageSize: 	# If there are "averageSize" amount of measurements in the list,
+		# If there are "average_size" amount of measurements in the list,
+		if len(self.measurements) >= self.average_size:
 														# delete the oldest measurement
 			self.measurements.pop()
 
-		self.measurements.insert(0, measurement) # Insert the newest measurement at the first index of the list
+		# Insert the newest measurement at the first index of the list
+		self.measurements.insert(0, measurement)
 
-		for i in self.measurements: # Summarize every index of the measurement list into one variable: sum
+		for i in self.measurements:  # Summarize every index of the measurement list into one variable: sum
 			sum_of += i
 
-		return sum_of / len(self.measurements) # Divide the sum with amount of measurements
-
-
-# --------------- TEST -----------------
-#molle = DataAverager(30)
-#for i in range(31): # range(10) = a list from 0 to 9 (lengeth of 10)
-#	print(i)
-#	print(molle.average(i))
-
+		# Divide the sum with amount of measurements
+		return sum_of / len(self.measurements)
