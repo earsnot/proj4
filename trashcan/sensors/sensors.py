@@ -18,10 +18,9 @@ class Scaler:
 
 class LinearFunc:
 	"""docstring for VoltageSensor - Input value and scale factor (fraction)"""
-	def __init__(self, input_value, slope, intercept):
-		self.input_value = input_value # expected input value
+	def __init__(self, slope, intercept):
 		self.slope = slope # slope coefficient
 		self.intercept = intercept # interception point with y-axis
 
-	def func_value(self):
-		return self.slope*self.input_value+self.intercept # calculates value based on linear regression
+	def func_value(self, input_value):
+		return self.slope*input_value+self.intercept # calculates value based on linear regression
