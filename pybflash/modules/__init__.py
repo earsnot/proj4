@@ -1,1 +1,1 @@
-__all__ = ["DataAssesser", "DataAverager", "drivemodes", "init", "Power", "SOC", "sensors"]
+__all__ = ["dataassesser", "dataaverager", "drivemodes", "init", "power", "soc", "sensors"]

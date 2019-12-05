@@ -6,24 +6,32 @@ import pyboard as pyb
 class ModeHandler:
     """Drive mode handler:
     """
+
     def __init__(self):
         self.mode = -1
         self.soc = -1
-    def select_drivemode(self, mode="default", soc="default"):
-        if mode == 0 or soc <= 20:
+
+    def select_drivemode(self, mode=-1, soc=0):
+        if mode == 0 or soc > 0 and soc <= 20:
+            print('eco')
             eco.activate()
             normal.toggle()
             sport.toggle()
 
-        if mode == 1:
+        elif mode == 1 or soc > 20:
+            print('normal')
             eco.toggle()
             normal.activate()
             sport.toggle()
 
-        if mode == 2:
+        elif mode == 2:
+            print('sport')
             eco.toggle()
             normal.toggle()
             sport.activate()
+        else:
+            return(print("out of bounds"))
+
 
 
 class Mode:

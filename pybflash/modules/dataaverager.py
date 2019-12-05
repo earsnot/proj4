@@ -19,4 +19,6 @@ class DataAverager:
 		for i in self.measurements: # Summarize every index of the measurement list into one variable: sum
 			sum_of += i
 
-		return sum_of / len(self.measurements) # Divide the sum with amount of measurements
+		return sum_of / len(self.measurements) # Divide the sum with amount of measurements #
+
+

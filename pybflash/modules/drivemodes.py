@@ -1,7 +1,7 @@
-#import init
-#import libs.constants
+from libs.constants import *
 from pyb import Pin
 #import main
+
 # EXPERIMENTAL
 class ModeHandler:
     """Drive mode handler:
@@ -42,4 +42,3 @@ class Mode:
     def toggle(self):
         if self.is_active:
             self.deactivate()
-
