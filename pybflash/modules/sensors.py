@@ -1,12 +1,12 @@
 class ADCConvertor:
 	"""docstring for VoltageSensor - Input value and scale factor (fraction)"""
 
-	def __init__(self, ADCvoltage, bitconfig):
-		self.ADCvoltage = ADCvoltage  # voltage range from ADC
+	def __init__(self, adc_voltage, bitconfig):
+		self.adc_voltage = adc_voltage  # voltage range from ADC
 		self.bitconfig = bitconfig  # configurated bit-setting
 
 	def bit2voltage(self, bitreading):
-		return self.ADCvoltage*bitreading/(1<<self.bitconfig) # calculates bit to voltage (sensor)
+		return self.adc_voltage*bitreading/(1<<self.bitconfig) # calculates bit to voltage (sensor)
 
 class Scaler:
 	"""docstring for VoltageSensor - Input value and scale factor (fraction)"""
