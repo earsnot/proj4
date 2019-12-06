@@ -1,14 +1,16 @@
 class DataAverager:
 	"""docstring for DataAverager - Handles moving averaging of data over a defined windows size.
 	Input: averageSize (averaging window size)."""
+	
+	measurements = [] # Define list to average over
 
-	def __init__(self, average_size):
-		self.average_size = average_size # The amount of data points to average over
-		self.measurements = [] # Define list to average over
+	def __init__(self, averageSize):
+		self.averageSize = averageSize # The amount of data points to average over
+
 	def avg_data(self, measurement):
 		sum_of = 0 # container for the average sum value
 
-		if len(self.measurements) >= self.average_size: # If there are "average_size" amount of measurements in the list,
+		if len(self.measurements) >= self.averageSize: 	# If there are "averageSize" amount of measurements in the list,
 														# delete the oldest measurement
 			self.measurements.pop()
 
@@ -18,3 +20,5 @@ class DataAverager:
 			sum_of += i
 
 		return sum_of / len(self.measurements) # Divide the sum with amount of measurements
+
+
