@@ -40,3 +40,6 @@ adc_conv = ADCConvertor(ADC_VOLTAGE, ADC_BIT_SETTING)
 # initialising Scaler class
 volt_div_scaler = Scaler(VOLT_DIV_SCALE)
 
+# initialising LinearFunc class
+current_func = LinearFunc(HALL_SEN_SLOPE, HALL_SEN_INTERCEPT)  # Hvad er slope og intercept af Hall Sensoren?
+temp_func = LinearFunc(TEMP_SLOPE, TEMP_INTERCEPT)  # Hvad er slope og intercept af temperatursensoren?
