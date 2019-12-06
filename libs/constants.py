@@ -33,10 +33,10 @@ CURR_DIV_SCALE = 4 # (( HVAD ER VORES VOLTAGE DIVIDER SCALING FOR STRØMMÅLING!
 
 
 # Functions
-SOC_SLOPE = 5
-SOC_INTERCEPT = 2
-HALL_SEN_SLOPE = 0
-HALL_SEN_INTERCEPT = 0
+SOC_SLOPE = 0 # These should be defined
+SOC_INTERCEPT = 0 # These should be defined
+HALL_SEN_SLOPE = 0 # These should be defined
+HALL_SEN_INTERCEPT = 0 # These should be defined
 
 # --- SENSORS ---
 # Temperature
