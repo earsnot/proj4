@@ -1,5 +1,5 @@
 # dump init stuff here
-from pyb import Pin, ADC
+from pyb import *
 from libs.constants import *
 from modules.drivemodes import *
 from modules.dataaverager import *
@@ -19,9 +19,6 @@ temperature_adc = ADC(Pin(ADC_TEMP_PIN))
 eco = Mode(ECO_PIN)
 normal = Mode(NORMAL_PIN)
 sport = Mode(SPORT_PIN)
-
-# init mode handler
-mh = ModeHandler()
 
 # initialising DataAverager class
 avg_voltage = DataAverager(AVG_WINDOW_SIZE)

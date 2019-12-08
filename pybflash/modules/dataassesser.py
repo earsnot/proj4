@@ -18,7 +18,7 @@ class DataAssesser:
 		else:
 			return 0
 		
-	def check_if_SOC_too_low(self, soc_value):
+	def check_if_soc_too_low(self, soc_value):
 		if soc_value < SOC_LOW_THRESHOLD:
 			return 1
 		else:

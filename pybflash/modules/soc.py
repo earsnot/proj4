@@ -8,9 +8,8 @@ V3 = 45
 V4 = 49
 V5 = 54
 
-
 class SOCOCV:
-	"""Docstring for SOC - Handles estimation of SOC based on start voltage and couloumb counting (current integration)
+	"""Docstring for soc - Handles estimation of SOC based on start voltage and couloumb counting (current integration)
 	Input: dt (time in between interrupts), batteryCapacityInAh"""
 	soc = 0
 
@@ -54,12 +53,6 @@ class SOCOCV:
 		else:
 			pass
 
-		return self.soc
-
-
-	def esitmate_continuous_SOC(self, currentReading):
-		self.soc = self.soc + (currentReading * self.dt * 100) / self.batteryCapacityInC # *100 fordi procent
-		return self.soc
 
 soc = SOCOCV(0.1, 18, 1,2,3,4,5,6,7,8)
 ocv = SOCOCV(0.1, 18, 1,2,3,4,5,6,7,8)

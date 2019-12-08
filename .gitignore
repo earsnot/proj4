@@ -1,1 +1,4 @@
 .idea/
+.trashcan/
+*.code-workspace
+__pycache__/
