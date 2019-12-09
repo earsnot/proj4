@@ -1,7 +1,7 @@
 # Settings
 SOC_LOW_THRESHOLD = 20 # [%]
 AVG_WINDOW_SIZE = 30
-INTERRUPT_FREQ = 1
+INTERRUPT_FREQ = 10
 INTERRUPT_TIME = 1/INTERRUPT_FREQ
 
 # Adc pins
@@ -32,13 +32,29 @@ VOLT_DIV_SCALE = 14.86 # (( HVAD ER VORES VOLTAGE DIVIDER SCALING FOR SPÆNDINGS
 CURR_DIV_SCALE = 4 # (( HVAD ER VORES VOLTAGE DIVIDER SCALING FOR STRØMMÅLING!? ))
 
 
-# Functions
-SOC_SLOPE = 0 # These should be defined
-SOC_INTERCEPT = 0 # These should be defined
-HALL_SEN_SLOPE = 0 # These should be defined
-HALL_SEN_INTERCEPT = 0 # These should be defined
-TEMP_SLOPE = 0 # These should be defined
-TEMP_INTERCEPT = 0 # These should be defined
+# Sensor fits:
+OCV_SLOPE1 = 0.0836 # These should be defined
+OCV_INTERCEPT1 = 46.5505 # These should be defined
+OCV_SLOPE2 = 0.0639 # These should be defined
+OCV_INTERCEPT2 = 46.7470 # These should be defined
+OCV_SLOPE3 = 0.0514 # These should be defined
+OCV_INTERCEPT3 = 47.1208 # These should be defined
+OCV_SLOPE4 = 0.0551 # These should be defined
+OCV_INTERCEPT4 = 46.8474 # These should be defined
+
+SOC_SLOPE1 = 11.9644
+SOC_INTERCEPT1 = -556.949
+SOC_SLOPE2 = 15.661
+SOC_INTERCEPT2 = -732.106
+SOC_SLOPE3 = 19.44
+SOC_INTERCEPT3 = -916.234
+SOC_SLOPE4 = 18.1569
+SOC_INTERCEPT4 = -850.604
+
+HALL_SEN_SLOPE = 64.79
+HALL_SEN_INTERCEPT = -114
+TEMP_SLOPE = 92.078
+TEMP_INTERCEPT = -43.141
 
 # --- SENSORS ---
 # Temperature

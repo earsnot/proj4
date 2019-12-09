@@ -1,19 +1,20 @@
+from pybflash.modules.init import *
+from libs.constants import *
+
 class MeasurementHandler:
 
-	# Class variables
 	def __init__(self):
 		self.voltage_avg = 0
 		self.current_avg = 0
 		self.temp_avg = 0
-		self.min_dis_pwr = 0
+		self.max_dis_pwr = 0
 		self.power = 0
 		self.ocv = 0
-		self.
-
+		self.soc = 0
 
 	def read_measurements(self):
 		# VOLTAGE: Read, convert, and average voltage reading
-		voltage_reading: object = voltage_adc.read() # Read ADC bit value from PyBoard ADC
+		voltage_reading = voltage_adc.read() # Read ADC bit value from PyBoard ADC
 		voltage_converted = adc_conv.bit2voltage(voltage_reading) # Convert bit-value to voltage
 		voltage_scaled = volt_div_scaler.scale(voltage_converted) # Scale voltage to original value, before voltage div
 		self.voltage_avg = avg_voltage.avg_data(voltage_scaled) # Average voltage reading
@@ -30,9 +31,12 @@ class MeasurementHandler:
 		temp_scaled = temp_func.func_value(temp_converted)  # Scale voltage to original value with function
 		self.temp_avg = avg_temp.avg_data(temp_scaled)  # Average current reading
 
-
 	def calculate_parameters(self):
-		power.
+		self.soc = soc_inst.estimate_continuous_soc(self.current_avg)
+		self.power = power.calc_power(self.current_avg, self.voltage_avg)
+
+		self.ocv = ocv_inst.estimate_ocv()
+		self.max_dis_pwr = power.calc_max_dis_power(self.ocv)
 
 
 	def get_avg_voltage(self):
@@ -44,4 +48,11 @@ class MeasurementHandler:
 	def get_avg_temp(self):
 		return self.temp_avg
 
+	def get_power(self):
+		return self.power
 
+	def get_max_dis_pwr(self):
+		return self.max_dis_pwr
+
+	def get_soc(self):
+		return self.soc
