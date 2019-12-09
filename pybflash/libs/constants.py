@@ -28,19 +28,18 @@ R_DIS_DT_10S = 0.28 # [Ohms] (3.7V / 13.2A) - 10 second voltage drop test - From
                     # from voltage drop over 10 seconds divided by current draw.
 
 # Scalers
-VOLT_DIV_SCALE = 14.86 # (( HVAD ER VORES VOLTAGE DIVIDER SCALING FOR SPÆNDINGSMÅLING!? ))
-CURR_DIV_SCALE = 4 # (( HVAD ER VORES VOLTAGE DIVIDER SCALING FOR STRØMMÅLING!? ))
+VOLT_DIV_SCALE = 1/0.059 #
 
 
 # Sensor fits:
-OCV_SLOPE1 = 0.0836 # These should be defined
-OCV_INTERCEPT1 = 46.5505 # These should be defined
-OCV_SLOPE2 = 0.0639 # These should be defined
-OCV_INTERCEPT2 = 46.7470 # These should be defined
-OCV_SLOPE3 = 0.0514 # These should be defined
-OCV_INTERCEPT3 = 47.1208 # These should be defined
-OCV_SLOPE4 = 0.0551 # These should be defined
-OCV_INTERCEPT4 = 46.8474 # These should be defined
+OCV_SLOPE1 = 0.0836
+OCV_INTERCEPT1 = 46.5505
+OCV_SLOPE2 = 0.0639
+OCV_INTERCEPT2 = 46.7470
+OCV_SLOPE3 = 0.0514
+OCV_INTERCEPT3 = 47.1208
+OCV_SLOPE4 = 0.0551
+OCV_INTERCEPT4 = 46.8474
 
 SOC_SLOPE1 = 11.9644
 SOC_INTERCEPT1 = -556.949

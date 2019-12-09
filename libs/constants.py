@@ -29,7 +29,6 @@ R_DIS_DT_10S = 0.28 # [Ohms] (3.7V / 13.2A) - 10 second voltage drop test - From
 
 # Scalers
 VOLT_DIV_SCALE = 14.86 # (( HVAD ER VORES VOLTAGE DIVIDER SCALING FOR SPÆNDINGSMÅLING!? ))
-CURR_DIV_SCALE = 4 # (( HVAD ER VORES VOLTAGE DIVIDER SCALING FOR STRØMMÅLING!? ))
 
 
 # Functions

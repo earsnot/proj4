@@ -1,4 +1,4 @@
-from libs.constants import *
+from pybflash.libs.constants import *
 
 class DataAssesser:
 	"""docstring for DataAssesser"""
@@ -17,8 +17,8 @@ class DataAssesser:
 				return 1
 		else:
 			return 0
-		
-	def check_if_soc_too_low(self, soc_value):
+	@staticmethod	# staticmethod because this method isn't dependent on instanciation
+	def check_if_soc_too_low(soc_value):
 		if soc_value < SOC_LOW_THRESHOLD:
 			return 1
 		else:

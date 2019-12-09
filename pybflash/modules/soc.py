@@ -30,9 +30,7 @@ class SOCOCV:
 			ocv = -1 # If the soc is beyond the defined, return -1
 		return ocv
 
-
-	def estimate_start_soc(self, voltage_reading): # Estimates the soc based on the voltage reading. Different functions
-# are used depending on the voltage reading.
+	def estimate_start_soc(self, voltage_reading): # Estimates the soc based on the voltage reading.
 		if 46.5505 <= voltage_reading < 47.384:
 			self.soc = voltage_reading * self.slope1 + self.intercept1
 		elif 47.384 <= voltage_reading < 48.667:

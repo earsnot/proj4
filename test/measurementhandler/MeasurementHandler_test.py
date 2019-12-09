@@ -1,9 +1,4 @@
 from init import *
-from pybflash.libs.constants import *
-
-test_volt_avg = DataAverager(30)
-test_current_avg = DataAverager(30)
-test_temp_avg = DataAverager(30)
 
 class MeasurementHandler:
 
@@ -54,20 +49,27 @@ class MeasurementHandler:
 	def get_avg_temp(self):
 		return self.temp_avg
 
+	def get_power(self):
+		return self.power
+
+	def get_max_dis_pwr(self):
+		return self.max_dis_pwr
+
+	def get_soc(self):
+		return self.soc
 
 # --------- Test bench:
 measurement_test = MeasurementHandler()
 
+measurement_test.read_measurements(2000,3000,3500)
+measurement_test.read_measurements(2500,3000,3500)
 measurement_test.read_measurements(3500,3000,3500)
-measurement_test.read_measurements(3500,3000,3500)
-measurement_test.read_measurements(3500,3000,3500)
-measurement_test.read_measurements(3500,3000,3500)
+measurement_test.read_measurements(4000,3000,3500)
 
-print(measurement_test.voltage_avg)
-print(measurement_test.current_avg)
-print(measurement_test.temp_avg)
+print(measurement_test.get_avg_voltage())
+print(measurement_test.get_avg_current())
+print(measurement_test.get_avg_temp())
 
-measurement_test.calculate_parameters()
 
 
 print(measurement_test.soc)

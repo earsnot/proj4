@@ -8,6 +8,7 @@ from modules.power import *
 from modules.sensors import *
 from modules.soc import *
 from modules.power import *
+from modules.measurementhandler import *
 
 
 # initialising ADC
@@ -42,3 +43,11 @@ temp_func = LinearFunc(TEMP_SLOPE, TEMP_INTERCEPT)  # Hvad er slope og intercept
 # initialising SOC and OCV
 soc_inst = SOCOCV(INTERRUPT_TIME, BATTERY_CAPACITY, SOC_SLOPE1, SOC_SLOPE2, SOC_SLOPE3, SOC_SLOPE4, SOC_INTERCEPT1, SOC_INTERCEPT2, SOC_INTERCEPT3, SOC_INTERCEPT4)
 ocv_inst = SOCOCV(INTERRUPT_TIME, BATTERY_CAPACITY, OCV_SLOPE1, OCV_SLOPE2, OCV_SLOPE3, OCV_SLOPE4, OCV_INTERCEPT1, OCV_INTERCEPT2, OCV_INTERCEPT3, OCV_INTERCEPT4)
+
+# initialising MeasurementHandler
+measurement_handler = MeasurementHandler()
+
+# initialising dataassesser
+volt_assessor = DataAssesser(TYPE_VOLT_SENSOR)
+curr_assessor = DataAssesser(TYPE_CURRENT_SENSOR)
+temp_assessor = DataAssesser(TYPE_TEMP_SENSOR)

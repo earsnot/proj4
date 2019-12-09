@@ -1,5 +1,4 @@
 from pybflash.modules.init import *
-from libs.constants import *
 
 class MeasurementHandler:
 

@@ -1,3 +1,5 @@
+from libs.constants import *
+
 class SOCOCV:
 	"""Docstring for SOCOCV - SOC / OCV calculation - Handles estimation of soc based on start voltage and couloumb
 	counting (current integration). Handles calculation of ocv based on soc.
@@ -33,12 +35,16 @@ class SOCOCV:
 	def estimate_start_soc(self, voltage_reading):
 		if 46.5505 <= voltage_reading < 47.384:
 			self.soc = voltage_reading * self.slope1 + self.intercept1
+			print("1")
 		elif 47.384 <= voltage_reading < 48.667:
 			self.soc = voltage_reading * self.slope2 + self.intercept2
+			print("2")
 		elif 48.667 <= voltage_reading < 50.98:
 			self.soc = voltage_reading * self.slope3 + self.intercept3
+			print("3")
 		elif 50.980 <= voltage_reading <= 52.357:
 			self.soc = voltage_reading * self.slope4 + self.intercept4
+			print("4")
 		else:
 			self.soc = -1
 		return self.soc
@@ -46,3 +52,8 @@ class SOCOCV:
 	def estimate_continuous_soc(self, current_reading):
 		self.soc = self.soc + (current_reading * self.dt * 100) / self.battery_capacity_in_c # *100 fordi procent
 		return self.soc
+
+
+soc_inst = SOCOCV(INTERRUPT_TIME, BATTERY_CAPACITY, SOC_SLOPE1, SOC_SLOPE2, SOC_SLOPE3, SOC_SLOPE4, SOC_INTERCEPT1, SOC_INTERCEPT2, SOC_INTERCEPT3, SOC_INTERCEPT4)
+ocv_inst = SOCOCV(INTERRUPT_TIME, BATTERY_CAPACITY, OCV_SLOPE1, OCV_SLOPE2, OCV_SLOPE3, OCV_SLOPE4, OCV_INTERCEPT1, OCV_INTERCEPT2, OCV_INTERCEPT3, OCV_INTERCEPT4)
+soc_inst.estimate_start_soc(48)
