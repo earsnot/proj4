@@ -17,3 +17,5 @@ class Mode:
     def toggle(self):
         if self.is_active:
             self.deactivate()
+
+#Has been tested and approved 08.12.19 by anders 'earsnot' rasmussen.
