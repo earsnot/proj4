@@ -5,8 +5,8 @@ class Power:
 		self.minBatteryVoltage = minBatteryVoltage
 		self.dischargeResistance = dischargeResistance
 
-	def calc_power(self, currentReading, voltageReading):
-		power = currentReading * voltageReading # 
+	def calc_power(self, currentReading, voltage_reading):
+		power = currentReading * voltage_reading # 
 		return power
 
 	def calc_max_dis_power(self, OCV): # OCV: Should be calculated from an external function through the OCV/SOC curve.

@@ -1,37 +1,19 @@
 # dump init stuff here
-from pyb import *
-from libs.constants import *
-from modules.drivemodes import *
-from modules.dataaverager import *
-from modules.dataassesser import *
-from modules.power import *
-from modules.sensors import *
-from modules.soc import *
-from modules.power import *
-from modules.measurementhandler import *
+from pybflash.libs.constants import *
+from pybflash.modules.dataaverager import *
+from pybflash.modules.power import *
+from pybflash.modules.sensors import *
+from pybflash.modules.soc import *
+from pybflash.modules.dataassesser import *
 
-
-# initialising ADC
-voltage_adc = ADC(Pin(ADC_VOLT_PIN))
-current_adc = ADC(Pin(ADC_CURRENT_PIN))
-temperature_adc = ADC(Pin(ADC_TEMP_PIN))
 
 # ----------- Module instantiations
-# initialising modes
-eco = Mode(ECO_PIN)
-normal = Mode(NORMAL_PIN)
-sport = Mode(SPORT_PIN)
-
 # initialising DataAverager class
+
+
 avg_voltage = DataAverager(AVG_WINDOW_SIZE)
 avg_current = DataAverager(AVG_WINDOW_SIZE)
 avg_temp = DataAverager(AVG_WINDOW_SIZE)
-
-# initialising DataAssesser class:
-
-temp_checker = DataAssesser(TYPE_TEMP_SENSOR)
-current_checker = DataAssesser(TYPE_CURRENT_SENSOR)
-volt_checker = DataAssesser(TYPE_VOLT_SENSOR)
 
 # initialising Power class
 power = Power(MIN_BATTERY_VOLTAGE, R_DIS_DT_10S)
@@ -50,13 +32,8 @@ temp_func = LinearFunc(TEMP_SLOPE, TEMP_INTERCEPT)  # Hvad er slope og intercept
 soc_inst = SOCOCV(INTERRUPT_TIME, BATTERY_CAPACITY, SOC_SLOPE1, SOC_SLOPE2, SOC_SLOPE3, SOC_SLOPE4, SOC_INTERCEPT1, SOC_INTERCEPT2, SOC_INTERCEPT3, SOC_INTERCEPT4)
 ocv_inst = SOCOCV(INTERRUPT_TIME, BATTERY_CAPACITY, OCV_SLOPE1, OCV_SLOPE2, OCV_SLOPE3, OCV_SLOPE4, OCV_INTERCEPT1, OCV_INTERCEPT2, OCV_INTERCEPT3, OCV_INTERCEPT4)
 
-# initialising MeasurementHandler
-measurement_handler = MeasurementHandler()
 
 # initialising dataassesser
 volt_assessor = DataAssesser(TYPE_VOLT_SENSOR)
 curr_assessor = DataAssesser(TYPE_CURRENT_SENSOR)
 temp_assessor = DataAssesser(TYPE_TEMP_SENSOR)
-
-
-#Has been tested and approved 08.12.19 by anders 'earsnot' rasmussen

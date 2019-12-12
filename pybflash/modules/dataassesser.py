@@ -1,4 +1,4 @@
-from libs.constants import *
+from pybflash.libs.constants import *
 
 class DataAssesser:
 	"""docstring for DataAssesser"""
