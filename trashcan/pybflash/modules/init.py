@@ -6,7 +6,7 @@ from modules.dataaverager import *
 from modules.dataassesser import *
 from modules.power import *
 from modules.sensors import *
-#from modules.soc import *
+from modules.soc import *
 
 
 # initialising ADC
@@ -25,17 +25,11 @@ avg_voltage = DataAverager(AVG_WINDOW_SIZE)
 avg_current = DataAverager(AVG_WINDOW_SIZE)
 avg_temp = DataAverager(AVG_WINDOW_SIZE)
 
-# initialising DataAssesser class:
-
-temp_checker = DataAssesser(TYPE_TEMP_SENSOR)
-current_checker = DataAssesser(TYPE_CURRENT_SENSOR)
-volt_checker = DataAssesser(TYPE_VOLT_SENSOR)
-
 # initialising Power class
 power = Power(MIN_BATTERY_VOLTAGE, R_DIS_DT_10S)
 
-# initialising SOC class - removed till implemented
-#soc = SOC(INTERRUPT_TIME, BATTERY_CAPACITY)
+# initialising SOC class
+soc = SOC(INTERRUPT_TIME, BATTERY_CAPACITY)
 
 # initialising ADCConvertor class
 adc_conv = ADCConvertor(ADC_VOLTAGE, ADC_BIT_SETTING)

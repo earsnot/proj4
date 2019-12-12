@@ -9,11 +9,13 @@ class Mode:
     def activate(self):
         self.pin.value(1)
         self.is_active = True
-        return self.is_active
 
     def deactivate(self):
         self.pin.value(0)
         self.is_active = False
-        return self.is_active
 
-#Has been tested and approved 08.12.19 by anders 'earsnot' rasmussen
+    def toggle(self):
+        if self.is_active:
+            self.deactivate()
+
+#Has been tested and approved 08.12.19 by anders 'earsnot' rasmussen.

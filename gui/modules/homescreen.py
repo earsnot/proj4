@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from ttkthemes import ThemedTk
 from PIL import Image, ImageTk
-from modules import *
+#from modules import *
 #from machine import i2c
 
 # setting up as slave
@@ -21,7 +21,7 @@ def choose_mode(mode):
 BUTTON_W = 25
 BUTTON_H = int(BUTTON_W/2)
 
-m = ThemedTk(className="Start Screen", theme="xpnative")
+m = ThemedTk(className="Start Screen", theme="black")
 m.geometry('480x360')
 
 rows = 0
@@ -41,7 +41,7 @@ nb.add(measurement_tab, text='Measurements')
 # displaying SOC
 
 soc = 50
-soc_label = ttk.Label(hometab, text=soc)
+soc_label = ttk.Label(hometab, text=("State of Charge:", soc))
 soc_label.pack()
 
 ttk.Button
@@ -62,8 +62,8 @@ lol_butt = tk.PhotoImage(file=r"C:\dev\proj4\gui\modules\lol.png")
 quit_button = ttk.Button(hometab, text='Closes application', command=lambda: m.destroy(), image=q_butt)
 quit_button.pack(anchor='se', padx=3, pady=3, side="bottom")
 
-lol_button = ttk.Button(hometab, text='Closes application', command=lambda: m.destroy(), image=lol_butt)
-lol_button.pack(anchor='n', padx=3, pady=3, side="top")
+#lol_button = ttk.Button(hometab, text='Closes application', command=lambda: m.destroy(), image=lol_butt)
+#lol_button.pack(anchor='n', padx=3, pady=3, side="top")
 
 m.mainloop()
 #

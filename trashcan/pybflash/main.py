@@ -12,25 +12,20 @@ class ModeHandler:
         if mode == 0 or soc > 0 and soc <= 20:
             print('eco')
             eco.activate()
-            normal.deactivate()
-            sport.deactivate()
-            self.mode = 0
-
-        elif mode == 2 and soc > 20:
-            print('sport')
-            eco.deactivate()
-            normal.deactivate()
-            sport.activate()
-            self.mode = 2
+            normal.toggle()
+            sport.toggle()
 
         elif mode == 1 or soc > 20:
             print('normal')
-            eco.deactivate()
+            eco.toggle()
             normal.activate()
-            sport.deactivate()
-            self.mode = 1
+            sport.toggle()
 
-
+        elif mode == 2:
+            print('sport')
+            eco.toggle()
+            normal.toggle()
+            sport.activate()
         else:
             return(print("out of bounds"))
 

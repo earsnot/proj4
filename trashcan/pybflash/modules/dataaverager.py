@@ -20,5 +20,3 @@ class DataAverager:
 			sum_of += i
 
 		return sum_of / len(self.measurements) # Divide the sum with amount of measurements
-
-#Has been tested and approved 08.12.19 by anders 'earsnot' rasmussen
